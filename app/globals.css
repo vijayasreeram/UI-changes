@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #10b981;
+  --color-accent: #34d399;
+  --color-background: #020905;
+  --color-surface: #04150b;
+  --color-border: rgba(16, 185, 129, 0.2);
+}
+
+html.light,
+[data-theme="light"] {
+  --color-primary: #034d28;
+  --color-accent: #c59a4c;
+  --color-background: #f7f3ea;
+  --color-surface: #ffffff;
+  --color-border: #ebdccb;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #020905;
+  color: #ecfdf5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.07) 0%, transparent 40%),
+    radial-gradient(circle at 90% 70%, rgba(5, 150, 105, 0.05) 0%, transparent 45%);
+  background-attachment: fixed;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.light body,
+[data-theme="light"] body {
+  background-color: #f7f3ea;
+  color: #111827;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(197, 154, 76, 0.07) 0%, transparent 40%),
+    radial-gradient(circle at 90% 70%, rgba(3, 77, 40, 0.04) 0%, transparent 45%);
+}
+
+/* Glassmorphism & Emerald Accents */
+.glass-emerald {
+  background: rgba(4, 21, 11, 0.75);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-emerald-card {
+  background: rgba(3, 16, 9, 0.85);
+  border: 1px solid rgba(16, 185, 129, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-emerald-card:hover {
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 25px -4px rgba(16, 185, 129, 0.35);
+}
+
+.glow-emerald-sm {
+  box-shadow: 0 0 12px -2px rgba(16, 185, 129, 0.3);
+}
+
+.glow-emerald-line {
+  box-shadow: 0 0 10px 1px rgba(52, 211, 153, 0.7);
+}
+
+/* Custom scrollbars */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.2);
+  border-radius: 4px;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.4);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Skeleton animation for dark emerald */
+@keyframes shimmer-dark {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(6, 32, 18, 0.6) 25%, rgba(16, 185, 129, 0.15) 50%, rgba(6, 32, 18, 0.6) 75%);
+  background-size: 200% 100%;
+  animation: shimmer-dark 1.8s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
